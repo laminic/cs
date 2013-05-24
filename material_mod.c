@@ -134,6 +134,7 @@ void SQL_del_material(MATERIAL *material)
 
 void SQL_select_material_with_ID_NAME(GSList **list)
 {
+	/*  
 	sqlite3_stmt *stmt = NULL
 	stmt = g_hash_table_lookup(sql_stmt_hash, "select_all_material");
 	while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -143,6 +144,7 @@ void SQL_select_material_with_ID_NAME(GSList **list)
 		*list = g_slist_append(*list, md);
 	}
 	sqlite3_reset(stmt);
+	*/
 }
 
 void SQL_select_material(const gchar *filter, GSList **list)
