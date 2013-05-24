@@ -43,6 +43,7 @@ int main (int argc, char *argv[])
 	init_user(builder);
 	init_material(builder);
 	init_auth(builder);
+	init_inout(builder);
 
     gtk_builder_connect_signals( login, NULL);
     g_object_unref( G_OBJECT( login) );

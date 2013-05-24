@@ -30,5 +30,5 @@ void inster_user(USER *user);
 void delete_user(USER *user);
 void update_user(USER *user);
 gboolean logincheck(const gchar *u, const gchar *p, USER *user);
-void get_user_list(GSList *user_list);
+void get_user_list(GSList **user_list);
 #endif 

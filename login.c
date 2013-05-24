@@ -39,7 +39,7 @@ void cb_login_button(GtkButton *button, gpointer data)
 
 	username = gtk_entry_get_text(login->userentry);
 	password = gtk_entry_get_text(login->passentry);
-	if (logincheck(username, password, &cur_user)) {
+	if (!logincheck(username, password, &cur_user)) {
 		gtk_widget_hide(GTK_WIDGET(login->loginwindow));
 		gtk_widget_show(GTK_WIDGET(login->mainwindow));
 	}

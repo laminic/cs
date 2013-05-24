@@ -86,7 +86,7 @@ void update_auth(gchar *uid, gint auth)
 	sqlite3_reset(stmt);
 }
 
-void get_user_list(GSList *user_list)
+void get_user_list(GSList **user_list)
 {
 	IDENTITY_USER *u;
 
@@ -98,8 +98,8 @@ void get_user_list(GSList *user_list)
 
 	if (NULL== (stmt=g_hash_table_lookup(pre_sql, "getusers"))){
 
-		const char* update_auth = "select uid, name from _120236ly";
-		rc = sqlite3_prepare_v2(db, update_auth, -1, &stmt, NULL);
+		const char* getusers = "select uid, name from _120236ly";
+		rc = sqlite3_prepare_v2(db, getusers, -1, &stmt, NULL);
 		if (rc != SQLITE_OK) {
 			fprintf(stderr, "sql error:%s\n", sqlite3_errmsg(db));
 			return;
@@ -111,7 +111,7 @@ void get_user_list(GSList *user_list)
 		u = (IDENTITY_USER *) g_malloc(sizeof(IDENTITY_USER));
 		u->uid = L(sqlite3_column_text(stmt, 0));
 		u->name = L(sqlite3_column_text(stmt, 1));
-		*user_list = g_slist_insert(*user_list, u);
+		*user_list = g_slist_append(*user_list, u);
 	}	
 	sqlite3_reset(stmt);
 }

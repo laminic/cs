@@ -49,6 +49,11 @@ typedef struct MATERIAL {
 	gchar *mcomment;
 }MATERIAL;
 
+typedef struct MATERIAL_IDENTITY {
+	gchar *mid;
+	gchar *mname;
+}MATERIAL_IDENTITY;
+
 enum {
 	COLUMN_M_MID,
 	COLUMN_M_MNAME,
